@@ -1,0 +1,48 @@
+.header{
+    height: 1rem;
+    background: #FF9900;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.header span{
+    display: inline-block;
+    line-height: 1rem;
+    font-size: 0.4rem;
+}
+.header .sp{
+    position: absolute;
+    top: 0;
+    right: 0.3rem;
+}
+.inp{
+    margin-top: 2rem;
+    text-align: center;
+    padding: 0 .5rem;
+}
+.inp div{
+    margin: 0.5rem 0rem;
+    border-bottom: 1px solid #ccc;
+}
+.inp div i{
+    font-size: 0.3rem;
+    display: inline-block;
+    line-height: 0.7rem;
+}
+.inp div input{
+    width: 80%;
+    height: 0.6rem;
+}
+
+.am-button-primary{
+    background: #FF9900 !important;
+}
+
+p .forget {
+    text-align: right;
+    display: block;
+   
+}
+.inp p{
+    margin-bottom: .4rem;
+}

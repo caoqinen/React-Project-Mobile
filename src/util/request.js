@@ -9,3 +9,22 @@ axios.interceptors.response.use(res => {
     console.groupEnd();
     return res;
 });
+
+
+// 登录
+export const reqLogin = (data => {
+    return axios({
+        url: "/api/login",
+        method: "post",
+        data: qs.stringify(data)
+    })
+})
+
+// 注册
+export const reqRegister = (data => {
+    return axios({
+        url: "/api/register",
+        method: "post",
+        data: qs.stringify(data)
+    })
+})

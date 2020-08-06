@@ -1,0 +1,20 @@
+footer{
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #ccc;
+    display: flex !important;
+}
+
+a{
+    flex: 1;
+    text-align: center;
+    line-height: 1.3rem;
+    font-size: .4rem;
+}
+
+.active{
+    background: violet;
+    color: #fff;
+}
