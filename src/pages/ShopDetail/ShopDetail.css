@@ -1,0 +1,111 @@
+
+
+.shopDetail .head_detail .am-navbar-light{
+    background: #FF9900;
+    color: #fff !important;
+}
+.shopDetail .head_detail .am-navbar-light .am-navbar-title{
+    color: #fff !important;
+
+}
+.shopDetail {
+    position: relative;
+}
+.shopDetail .content{}
+.shopDetail .content .first_tu{  position: relative;}
+.shopDetail .content .first_tu img{
+    width: 100%;
+    height: 5.5rem;
+}
+
+.shopDetail .content .first_tu .txt{
+  
+    padding: 0.3rem 0.4rem 0;
+    box-shadow: 0.03rem 0.2rem 10px #ccc;
+}
+.shopDetail .content .first_tu .txt h3{
+    font-size: 0.4rem;
+    line-height: 1rem;
+}
+.shopDetail .content .first_tu .txt .center_txt{
+   
+
+}
+.shopDetail .content .first_tu .txt .center_txt i{
+    color: #ff0000;
+    font-size: .3rem;
+}
+.shopDetail .content .first_tu .txt .center_txt span{
+    display: inline-block;
+    border: 1px solid #ffaa00;
+    width: 1rem;
+    line-height: .5rem;
+    text-align: center;
+    border-radius: .1rem;
+    margin-left: 0.2rem;
+    color: #ffaa00;
+}
+.shopDetail .content .first_tu .txt .bottom{
+    text-decoration: line-through;
+    color: #666;
+    line-height: .4rem;
+    padding-bottom: 0.2rem;
+}
+
+.shopDetail .content .first_tu .collect {
+    border-left: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    right: .5rem;
+    top: 5.8rem;
+    text-align: center;
+}
+.shopDetail .content .first_tu .collect img{
+    width: 0.4rem;
+    height: 0.35rem;
+}
+.shopDetail .content .first_tu .collect p{
+    color: #ff0000;
+    line-height: .5rem;
+}
+
+.shopDetail .advertising {
+    margin: 0.6rem 0 .8rem 0;
+}
+
+.shopDetail .shopcart{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    border-top: #000 0.01rem solid ;
+}
+.shopDetail .shopcart span{
+    display: block;
+    line-height: 1.1rem;
+    float: right;
+    background: #ffaa00;
+    color: #fff;
+    padding: 0 .6rem;
+    font-size: 0.3rem;
+}
+
+.shopDetail .addCate{}
+.shopDetail .addCate .door{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+}
+.shopDetail .addCate .box{
+    background: #fff;
+    width: 100%;
+    z-index: 9999;
+    height: 500px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}

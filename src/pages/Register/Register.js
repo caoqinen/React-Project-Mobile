@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import "./Register.css";
-import GoBack from "../../components/GoBack/GoBack";
-import { InputItem, Button, Toast } from 'antd-mobile';
-import { reqRegister } from "../../util/request"
+import { NavBar, Button, Toast, Icon } from 'antd-mobile';
+import { reqRegister } from "../../util/request";
+
 
 export default class Register extends Component {
 
@@ -30,26 +30,54 @@ export default class Register extends Component {
     }
 
 
-    successToast() {
-        Toast.success('Load success !!!', 1);
+    successToast(ok) {
+        Toast.success(ok, 2, () => this.onClose());
+    }
+
+    failToast(failing) {
+        Toast.fail(failing, 2, () => this.onClose1());
+    }
+
+    // 成功跳转登录
+    onClose() {
+        this.props.history.push('/login');
+    }
+    // 失败清空输入框内容
+    onClose1() {
+        this.setState({
+            user: {
+                phone: "",
+                nickname: "",
+                password: ""
+            }
+        })
     }
 
 
     Register() {
         reqRegister(this.state.user).then(res => {
-            // if (res.data.isok) {
-            //     this.successToast()
-            // }
+            if (res.data.code === 200) {
+                this.successToast(res.data.msg + '正在跳转登录...');
+            } else {
+                this.failToast(res.data.msg);
+            }
         })
+
+    }
+
+    onLeftClick() {
+        // console.log(this.props);
+        this.props.history.goBack();
 
     }
     render() {
         const { user } = this.state;
         return (
             <div className="bg">
-                <div className="header">
-                    <span>注册</span>
-                </div>
+                <NavBar
+                    mode="light"
+                    icon={<Icon type="left" />}
+                    onLeftClick={() => this.onLeftClick()}>注册</NavBar>
 
                 <div className="inp">
                     <div><i>账号：</i><input type="text" onChange={(e) => this.changeUser(e, 'phone')} value={user.phone} /></div>

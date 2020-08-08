@@ -2,28 +2,53 @@ import React, { Component } from 'react';
 import { Route, Redirect, Switch, NavLink } from "react-router-dom";
 import Home from "../Home/Home";
 import Mine from "../Mine/Mine";
-import Detail from "../Detail/Detail";
+import Classify from "../classify/classify";
 import ShopCar from "../ShopCar/ShopCar";
 import "./Index.css";
+// 图片不亮
+import homeNb from "../../assets/img/tab_home_nor.png";
+import classifyNb from "../../assets/img/tab_menu_nor.png";
+import shopcarNb from "../../assets/img/tab_shopping_nor.png";
+import mineNb from "../../assets/img/tab_me_nor.png";
+// 亮的图片
+import homebg from "../../assets/img/tab_home_hig.png";
+import classifybg from "../../assets/img/tab_menu_hig.png";
+import shopcarbg from "../../assets/img/tab_shopping_hig.png";
+import minebg from "../../assets/img/tab_me_hig.png";
 
 export default class Index extends Component {
+
     render() {
+        // console.log(this.props);
+        const isOk = this.props.history.location.pathname;
         return (
             <div>
                 {/* 路由出口 */}
                 <Switch>
                     <Route path="/index/home" component={Home} />
-                    <Route path="/index/detail" component={Detail} />
+                    <Route path="/index/classify" component={Classify} />
                     <Route path="/index/mine" component={Mine} />
                     <Route path="/index/shopcar" component={ShopCar} />
                     <Redirect to="/index/home" />
                 </Switch>
 
                 <footer>
-                    <NavLink to="/index/home">首页</NavLink>
-                    <NavLink to="/index/detail">分类</NavLink>
-                    <NavLink to="/index/shopcar">购物车</NavLink>
-                    <NavLink to="/index/mine">我的</NavLink>
+                    <NavLink className="a" to="/index/home">
+                        <img className="home" src={'/index/home' === isOk ? homebg : homeNb} alt="" />
+                        <span>首页</span>
+                    </NavLink>
+                    <NavLink className="a" to="/index/classify">
+                        <img className="classifyNb" src={'/index/classify' === isOk ? classifybg : classifyNb} alt="" />
+                        <span>分类</span>
+                    </NavLink>
+                    <NavLink className="a" to="/index/shopcar">
+                        <img className="shopcar" src={'/index/shopcar' === isOk ? shopcarbg : shopcarNb} alt="" />
+                        <span>购物车</span>
+                    </NavLink>
+                    <NavLink className="a" to="/index/mine">
+                        <img className="mine" src={'/index/mine' === isOk ? minebg : mineNb} alt="" />
+                        <span>我的</span>
+                    </NavLink>
                 </footer>
             </div>
         )

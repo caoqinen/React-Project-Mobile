@@ -1,0 +1,39 @@
+.shopList{
+    padding: .4rem .2rem .8rem;
+}
+.shopList .list{
+    display: flex;
+    margin-bottom: 0.4rem;
+}
+.shopList .list .left{
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+.shopList .list .left img{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.shopList .list .right{
+    margin-left: 0.5rem;
+}
+.shopList .list .right h3{
+    font-size: .4rem;
+    line-height: .6rem;
+}
+.shopList .list .right p{
+    font-size: .3rem;
+    line-height: .6rem;
+    color: red;
+}
+.shopList .list .right .btn{
+    display: block;
+    width: 1.7rem;
+    height: .6rem;
+    background: #ff9900;
+    text-align-last: center;
+    border-radius: .1rem;
+    color: #fff;
+}
+.shopList .list .right .btn span{
+    line-height: .6rem;
+}

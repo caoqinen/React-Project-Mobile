@@ -28,3 +28,32 @@ export const reqRegister = (data => {
         data: qs.stringify(data)
     })
 })
+
+// 获取轮播图信息
+export const reqBanners = (params) => axios({
+    url: "/api/getbanner",
+    method: "get",
+    params
+})
+
+// 获取限时秒杀信息
+export const reqSeckill = (params) => axios({
+    url: "/api/getseckill",
+    method: "get",
+    params
+})
+
+// 获取商品列表信息
+export const reqGoods = (params) => axios({
+    url: "/api/getindexgoods",
+    method: "get",
+    params
+})
+
+
+// 通过id获取具体的某条信息
+export const reqGoodsInfo = (params) => axios({
+    url: "/api/getgoodsinfo",
+    method: "get",
+    params
+})

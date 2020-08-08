@@ -19,7 +19,22 @@ class Login extends Component {
     }
 
     successToast(ok) {
-        Toast.success(ok, 2);
+        Toast.success(ok, 2, () => this.onClose());
+    }
+
+    onClose() {
+        this.props.history.push('/index/home')
+    }
+    onClose1() {
+        this.setState({
+            user: {
+                phone: "",
+                password: ""
+            }
+        })
+    }
+    offline(fail) {
+        Toast.offline(fail, 2, () => this.onClose1());
     }
 
     changeUser(e, key) {
@@ -33,10 +48,10 @@ class Login extends Component {
 
     sub() {
         reqLogin(this.state.user).then(res => {
-            if (res.data.code == 200) {
-                this.successToast(res.data.msg);
+            if (res.data.code === 200) {
+                this.successToast(res.data.msg + '正在跳转首页...');
             } else {
-                alert('失败')
+                this.offline('账号或密码错误')
             }
         })
     }

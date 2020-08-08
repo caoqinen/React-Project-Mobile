@@ -1,6 +1,13 @@
 
-body{
-    
+
+
+.bg .am-navbar-light{
+    background: #FF9900;
+    color: #fff !important;
+}
+.bg .am-navbar-light .am-navbar-title{
+    color: #fff !important;
+
 }
 
 .header{
@@ -24,6 +31,3 @@ body{
     background: #fff;
 }
 
-.box .am-list-item{
-  
-}

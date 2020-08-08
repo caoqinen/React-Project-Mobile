@@ -3,18 +3,32 @@ footer{
     position: fixed;
     bottom: 0;
     left: 0;
-    background: #ccc;
+    background: #fff;
     display: flex !important;
 }
 
-a{
+body{
+    background: #FAFAFA !important;
+}
+
+.a{
     flex: 1;
     text-align: center;
-    line-height: 1.3rem;
-    font-size: .4rem;
+    color: #000;
+}
+.a span{
+    display: block;
+    line-height: .4rem;
+    font-size: .2rem;
+   
 }
 
 .active{
-    background: violet;
-    color: #fff;
+
+    color: #FF9A00 !important;
+}
+
+footer .home,.classifyNb,.shopcar,.mine{
+    width: .3rem;
+    margin-top: 0.2rem;
 }

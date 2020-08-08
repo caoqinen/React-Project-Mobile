@@ -1,0 +1,35 @@
+.header_toubu{
+    background: #fff;
+    height: 1rem;
+}
+.header_toubu .left {}
+.header_toubu .left .logo{
+    margin: 0.3rem 0 0 .2rem;
+    width: 2.5rem;
+}
+.header_toubu .right{
+    margin-left: 0.8rem;
+}
+.header_toubu .right .am-search{
+    background: #fff;
+}
+.header_toubu .right .am-search .am-search-input{
+    margin-top: 0.2rem;
+    width: 30px;
+    /* background: coral; */
+}
+
+
+
+.header_toubu .right .am-search{
+    width: 157px !important;
+    
+}
+.header_toubu .right .am-search .am-search-input{
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.header_toubu .right .am-search .am-search-cancel-show{
+    margin-top: 12px;
+}
