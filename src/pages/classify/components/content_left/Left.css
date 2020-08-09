@@ -1,0 +1,14 @@
+.left_active {
+  border-color: #1D84A7 !important;
+  color: #ffaa00 !important;
+}
+.left_classify {
+  width: 2.5rem;
+  text-align: center;
+}
+.left_classify .ul li {
+  line-height: 1rem;
+  font-size: 0.3rem;
+  color: #302d2d;
+  border-left: 5px solid transparent;
+}

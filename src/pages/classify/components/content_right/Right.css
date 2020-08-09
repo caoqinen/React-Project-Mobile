@@ -1,0 +1,24 @@
+.right_classify {
+  width: 100%;
+}
+.right_classify .pic {
+  position: relative;
+  border: 1px solid #1D84A7;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  margin: 0.3rem 0 0 0.3rem;
+}
+.right_classify .pic .img {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.right_classify .pic p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: #1D84A7;
+  line-height: 0.5rem;
+  color: #fff;
+}

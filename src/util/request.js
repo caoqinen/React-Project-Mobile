@@ -57,3 +57,24 @@ export const reqGoodsInfo = (params) => axios({
     method: "get",
     params
 })
+
+// 获取分类商品
+export const reqClassifyTree = (params) => axios({
+    url: "/api/getcatetree",
+    method: "get",
+    params
+})
+
+// 获取分类中某一条的商品信息
+export const reqClassifyDetail = (params) => axios({
+    url: "/api/getgoods",
+    method: "get",
+    params
+})
+
+// 购物车列表
+export const reqCartList = (params) => axios({
+    url: "/api/cartlist",
+    method: "get",
+    params
+})

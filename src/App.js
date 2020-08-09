@@ -10,6 +10,7 @@ import Classify from "./pages/classify/classify";
 import ShopCar from "./pages/ShopCar/ShopCar";
 import Register from "./pages/Register/Register";
 import ShopDetail from "./pages/ShopDetail/ShopDetail";
+import ClassifyDetail from "./pages/ClassifyDetail/ClassifyDetail";
 
 // const Index = asyncComponent(() => import("./pages/Index/Index"));
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/shopcar" component={ShopCar} />
         <Route path="/register" component={Register} />
         <Route path="/shopdetail" component={ShopDetail} />
+        <Route path="/classifyDetail" component={ClassifyDetail} />
         <Redirect to="/login" />
       </Switch>
     </div>

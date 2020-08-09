@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import querystring from "querystring";
 import { connect } from "react-redux";
 import { shopDetail, reqShopDetailsAction } from "../../store/index";
-import { NavBar, Icon } from 'antd-mobile';
+import { NavBar, Icon, Tag } from 'antd-mobile';
 import collect from "../../assets/img/keep.png"
 import "./ShopDetail.css";
 
@@ -11,8 +11,12 @@ class ShopDetail extends Component {
     constructor() {
         super();
         this.state = {
-            isAddShop: false,
-            isShow: true
+            // 下面加入购物车消失
+            isAddShop: true,
+            // 弹出门板
+            isShow: false,
+            // 存储规格数组
+            shopArr: []
         }
     }
 
@@ -28,11 +32,50 @@ class ShopDetail extends Component {
     }
     // 点击加入购物车
     addShopCate() {
-        console.log(1);
+        this.setState({
+            // 下面加入购物车消失
+            isAddShop: !this.state.isAddShop,
+            // 弹出门板
+            isShow: !this.state.isShow
+        })
     }
+
+
+    close() {
+        this.setState({
+            // 下面加入购物车消失
+            isAddShop: !this.state.isAddShop,
+            // 弹出门板
+            isShow: !this.state.isShow
+        })
+    }
+
+    onChange(selected, item) {
+        if (selected) {
+            this.state.shopArr.push(item)
+            this.setState({
+                ...this.state,
+                shopArr: this.state.shopArr
+            })
+
+        } else {
+
+            let index = this.state.shopArr.findIndex((value) => value === item)
+            this.state.shopArr.splice(index, 1)
+
+            this.setState({
+                ...this.state,
+                shopArr: this.state.shopArr
+            })
+
+        }
+
+    }
+
     render() {
         const { shopDetail } = this.props;
-        // console.log(shopDetail.id);
+        const { isAddShop, isShow, shopArr } = this.state;
+        console.log(shopArr);
         return (
             <div className="shopDetail">
                 {/* 头部 */}
@@ -67,24 +110,34 @@ class ShopDetail extends Component {
                 <div className="advertising" dangerouslySetInnerHTML={{ __html: shopDetail.description }}></div>
                 {/* shopcart */}
                 {
-                    this.state.isAddShop ? (<div className="shopcart">
+                    isAddShop ? (<div className="shopcart">
                         <span onClick={() => this.addShopCate()}>加入购物车</span>
                     </div>) : null
                 }
 
                 {/* 点击弹出 */}
                 {
-                    this.state.isShow ? (<div className="addCate">
-                        <div className="door"></div>
-                        <div className="box">
+                    isShow ? (<div className="addCate">
+                        {/* 半透明门板 */}
+                        <div className="door" onClick={() => this.close()}></div>
+                        {/* 下面弹出的白框 */}
+                        <div className="box_shop">
                             <div className="top">
                                 <div className="left">
                                     <img src={shopDetail.img} alt="" />
                                 </div>
                                 <div className="right"><i>{shopDetail.goodsname}</i></div>
                             </div>
-                            <h2>{shopDetail.specsname}</h2>
-                            <div className="tag">{}</div>
+                            <h2 className="h2">{shopDetail.specsname}</h2>
+                            <div className="tag">
+                                {
+                                    shopDetail.specsattr ? JSON.parse(shopDetail.specsattr).map((item) => {
+                                        return (
+                                            <Tag onChange={(selected) => this.onChange(selected, item)} key={item}>{item}</Tag>
+                                        )
+                                    }) : null
+                                }
+                            </div>
                             <div className="addShop"><span>加入购物车</span></div>
                         </div>
                     </div>) : null
@@ -95,6 +148,10 @@ class ShopDetail extends Component {
 
         )
     }
+
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(JSON.parse(nextProps.shopDetail.specsattr));
+    // }
 }
 
 const mapStateToProps = state => {

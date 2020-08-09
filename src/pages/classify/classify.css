@@ -1,0 +1,6 @@
+.classify {
+  height: 100%;
+}
+.classify .context_classify {
+  display: flex;
+}

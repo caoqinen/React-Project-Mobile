@@ -3,6 +3,12 @@
 .shopDetail .head_detail .am-navbar-light{
     background: #FF9900;
     color: #fff !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+
 }
 .shopDetail .head_detail .am-navbar-light .am-navbar-title{
     color: #fff !important;
@@ -11,7 +17,11 @@
 .shopDetail {
     position: relative;
 }
-.shopDetail .content{}
+.shopDetail .content{
+    
+    margin-top: 0.8rem;
+
+}
 .shopDetail .content .first_tu{  position: relative;}
 .shopDetail .content .first_tu img{
     width: 100%;
@@ -79,7 +89,7 @@
     left: 0;
     background: #fff;
     width: 100%;
-    border-top: #000 0.01rem solid ;
+    /* border-top: #000 0.01rem solid ; */
 }
 .shopDetail .shopcart span{
     display: block;
@@ -100,12 +110,65 @@
     left: 0;
     background: rgba(0, 0, 0, .5);
 }
-.shopDetail .addCate .box{
+.shopDetail .addCate .box_shop{
     background: #fff;
     width: 100%;
     z-index: 9999;
-    height: 500px;
+    /* height: 500px; */
     position: fixed;
     left: 0;
     bottom: 0;
+}
+/* 弹出来的框 */
+.shopDetail .addCate .box_shop{
+    padding: .4rem .4rem 0 .4rem;
+}
+.shopDetail .addCate .box_shop .top{
+display: flex;
+}
+.shopDetail .addCate .box_shop .top .left{}
+.shopDetail .addCate .box_shop .top .left img{
+    width: 2.7rem;
+    border-radius: .2rem;
+}
+.shopDetail .addCate .box_shop .top .right{
+    font-size: .4rem;
+    margin-left: .5rem;
+    line-height: 1rem;
+}
+.shopDetail .addCate .box_shop .top .right i{}
+.shopDetail .addCate .box_shop .h2{
+    font-weight: bold;
+    font-size: .5rem;
+    line-height: 1.3rem;
+}
+.shopDetail .addCate .box_shop .tag{
+    padding: 0.5rem 0rem;
+}
+.shopDetail .addCate .box_shop .tag .am-tag{
+    margin-left: 0.3rem;
+    line-height: 0.8rem;
+    height: 0.8rem;
+    padding: 0 .4rem;
+    font-size: .3rem;
+    
+}
+.shopDetail .addCate .box_shop .tag  .am-tag-normal{
+
+}
+.shopDetail .addCate .box_shop .tag .am-tag-active{
+
+
+}
+.shopDetail .addCate .box_shop .addShop{
+    text-align: center;
+    margin-bottom: .4rem;
+}
+.shopDetail .addCate .box_shop .addShop span{
+    display: inline-block;
+    background: #ffaa00;
+    color: #fff;
+    line-height: 1rem;
+    padding: 0 .6rem;
+    margin-right: .5rem;
 }

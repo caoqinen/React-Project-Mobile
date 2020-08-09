@@ -1,0 +1,41 @@
+.ClassifyDetail {
+  background: #fff;
+}
+.ClassifyDetail .head_detail .am-navbar-light {
+  background: #FF9900 !important;
+  color: #fff !important;
+}
+.ClassifyDetail .head_detail .am-navbar-light .am-navbar-title {
+  color: #fff;
+}
+.ClassifyDetail .classDetail {
+  display: flex;
+  padding: 0.4rem 0 0 0.4rem;
+}
+.ClassifyDetail .classDetail .left .pic {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.2rem;
+}
+.ClassifyDetail .classDetail .right {
+  margin-left: 0.5rem;
+}
+.ClassifyDetail .classDetail .right .tit {
+  font-size: 0.35rem;
+  line-height: 1rem;
+}
+.ClassifyDetail .classDetail .right .price {
+  font-size: 0.33rem;
+  font-weight: 700;
+  color: red;
+  line-height: 0.5rem;
+  margin-top: 0.3rem;
+}
+.ClassifyDetail .classDetail .right .btn {
+  background: #FF9900;
+  display: inline-block;
+  color: #fff;
+  line-height: 0.7rem;
+  padding: 0 0.4rem;
+  border-radius: 0.2rem;
+}
