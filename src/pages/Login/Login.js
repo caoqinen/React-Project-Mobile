@@ -50,8 +50,10 @@ class Login extends Component {
         reqLogin(this.state.user).then(res => {
             if (res.data.code === 200) {
                 this.successToast(res.data.msg + '正在跳转首页...');
+                const userData = JSON.stringify(res.data.list)
+                sessionStorage.setItem('key', userData)
             } else {
-                this.offline('账号或密码错误')
+                this.offline('账号或密码错误');
             }
         })
     }

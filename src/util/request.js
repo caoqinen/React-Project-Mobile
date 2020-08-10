@@ -72,9 +72,24 @@ export const reqClassifyDetail = (params) => axios({
     params
 })
 
+// 购物车添加
+export const reqCartAdd = (data) => axios({
+    url: "/api/cartadd",
+    method: "post",
+    data: qs.stringify(data)
+})
+
 // 购物车列表
 export const reqCartList = (params) => axios({
     url: "/api/cartlist",
     method: "get",
     params
+})
+
+
+// 购物车修改
+export const reqCartEdit = (data) => axios({
+    url: "/api/cartedit",
+    method: "post",
+    data: qs.stringify(data)
 })

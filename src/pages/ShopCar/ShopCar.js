@@ -17,15 +17,18 @@ class ShopCar extends Component {
 
     componentDidMount() {
         // console.log(this.props);
-        this.props.reqCartList()
+        // 从账号中取uid
+        const userData = sessionStorage.getItem('key');
+        const uid = JSON.parse(userData).uid;
+        this.props.reqCartList(uid)
     }
     render() {
         const { title, data } = this.state;
         const { cartList } = this.props;
-        if (!cartList) {
-            return null;
+        if (cartList.length === 0) {
+            return <div></div>;
         }
-        console.log(cartList);
+        // console.log(cartList);
         return (
             <div>
                 {/* 头部组件 */}
@@ -35,7 +38,7 @@ class ShopCar extends Component {
                     // 判断请求回来的东西有值吗，有的话展示，否则展示该组件
                     data.length === 0 ? <Nodata /> : (
                         // 列表数据
-                        <ContentShopList />
+                        <ContentShopList cartList={cartList} />
                     )
                 }
 
@@ -51,7 +54,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        reqCartList: () => dispatch(reqCartListAction())
+        reqCartList: (uid) => dispatch(reqCartListAction(uid))
     }
 }
 

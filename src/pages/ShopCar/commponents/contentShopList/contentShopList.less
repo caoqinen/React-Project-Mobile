@@ -1,0 +1,130 @@
+.contentShopList{
+   
+    position: relative;
+    margin-bottom: 2.5rem;
+    .onceData{
+        padding: 0.3rem;
+        overflow: hidden;
+        // 顶部
+        .top_shop_store>{
+            span{
+                margin-left: 0.3rem;
+                color: #ccc;
+            }
+        }
+        // 图片这一类的  一会浮动  或弹性盒子
+        .center_shop{
+            display: flex;
+            margin-top: .6rem;
+            width: 410px;
+          
+            // 商品勾选框
+            .checkbox{
+                margin-right: .2rem;
+                img{
+                    display: block;
+                    margin-top: .68rem;
+                }
+            }
+            // 商品图片
+            .shop_img{
+                margin-right: .2rem;
+                img{
+                   width: 1.8rem; 
+                }
+            }
+            // 添加这一类的
+            .shop_info{
+                h3{
+                    font-size: .32rem;
+                }
+                // 商品添加或减少
+                .add_shop{
+                    margin-top: .4rem;
+                    span{
+                        color: #999;
+                        display: inline-block;
+                        border: 1px solid #ccc;
+                        width: 0.9rem;
+                        text-align: center;
+                        line-height: .5rem;
+                    }
+                }
+                // 总价
+                .shop_total{
+                    line-height: .7rem;
+                }
+            }
+            // 商品单价
+            .shop_unit{
+                margin-top: .3rem;
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            // 删除按钮
+            .delbtn{
+                background: #ffaa00;
+                width: 1rem;
+                text-align: center;
+                line-height: 2rem;
+                color: #fff;
+            }
+        }
+    }
+
+    // 脚部结算
+     .shop_footer{
+         display: flex;
+         position: fixed;
+         bottom: .9rem;
+        //  width: 7.48rem;
+         width: 100%;
+         border-top: 1px solid #999;
+         background: #fff;
+        //  border: 1px solid #000;
+        //  全选
+        
+         .quanxuan{
+             width: 1rem;
+             margin-top: .15rem;
+             text-align: center;
+             p{
+                 color: #999;
+                 line-height: .6rem;
+             }
+         }
+        //  编辑
+        .edit{ 
+            margin: .15rem 0 0 .2rem;
+            width: 1rem;
+             text-align: center;
+            p{
+                color: #999;
+                line-height: .6rem;
+            }
+        }
+        // 合计
+        .heji{
+            margin-top: .15rem;
+            flex-grow: 1;
+            p{
+                line-height: .4rem;
+                color: #999;
+            }
+            .heji_p1{
+                margin-top: .1rem;
+            }
+        }
+        // 结算
+        .pay{
+            background: #ffaa00;
+            height: 1.2rem;
+            span{
+                line-height: 1.2rem;
+                color: #fff;
+                padding: 0 .8rem;
+            }
+        }
+     }
+}

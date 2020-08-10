@@ -40,19 +40,23 @@ class ClassifyDetail extends Component {
     onLeftClick() {
         this.props.history.goBack();
     }
+
+    toDeail(id) {
+        this.props.history.push("/shopdetail?id=" + id)
+    }
     render() {
         const { classifyDetail } = this.props;
         const { title } = this.state;
 
         // 如果是空返回一个空div 如果有才打印
-        if (!title) {
-            return null
-        }
+        // if (!title) {
+        //     return null
+        // }
         // console.log(title);
-        if (classifyDetail.length < 1) {
-            return <div></div>
-        }
-        console.log(classifyDetail);
+        // if (classifyDetail.length < 1) {
+        //     return <div></div>
+        // }
+        // console.log(classifyDetail);
         return (
             <div className="ClassifyDetail">
                 {/* 头部 */}
@@ -65,7 +69,7 @@ class ClassifyDetail extends Component {
 
                 {/* 主要内容 */}
                 {
-                    classifyDetail.map((item) => {
+                    classifyDetail ? classifyDetail.map((item) => {
                         return (
                             <div key={item.id} className="classDetail">
                                 <div className="left">
@@ -74,11 +78,11 @@ class ClassifyDetail extends Component {
                                 <div className="right">
                                     <h3 className="tit">{item.goodsname}</h3>
                                     <p className="price">￥{item.price}</p>
-                                    <div className="btn">立即抢购</div>
+                                    <div className="btn" onClick={() => this.toDeail(item.id)}>立即抢购</div>
                                 </div>
                             </div>
                         )
-                    })
+                    }) : []
                 }
 
             </div>

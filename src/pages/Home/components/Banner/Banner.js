@@ -8,8 +8,7 @@ export default function Banner(props) {
     // console.log(banner);
     return (
         <div className="banner">
-            <Carousel autoplay={false}
-                infinite>
+            <Carousel autoplay={true} infinite>
                 {
                     banner.map(item => {
                         return <img key={item.id} src={item.img} alt="" />

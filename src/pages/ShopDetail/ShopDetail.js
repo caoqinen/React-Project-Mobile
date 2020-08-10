@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import querystring from "querystring";
 import { connect } from "react-redux";
 import { shopDetail, reqShopDetailsAction } from "../../store/index";
-import { NavBar, Icon, Tag } from 'antd-mobile';
+import { NavBar, Icon, Tag, Toast } from 'antd-mobile';
 import collect from "../../assets/img/keep.png"
 import "./ShopDetail.css";
+import { reqCartAdd } from "../../util/request";
 
 class ShopDetail extends Component {
     constructor() {
@@ -72,10 +73,38 @@ class ShopDetail extends Component {
 
     }
 
+    successToast(ok) {
+        Toast.success(ok, 1);
+    }
+    // 点击加入购物车
+    addShopCar() {
+
+        const uid = JSON.parse(sessionStorage.getItem('key')).uid;
+        const shopId = this.props.shopDetail.id;
+        const obj = {
+            uid,
+            goodsid: shopId,
+            num: 1
+        }
+        reqCartAdd(obj).then(res => {
+            if (res.data.code === 200) {
+                this.setState({
+                    // 下面加入购物车消失
+                    isAddShop: !this.state.isAddShop,
+                    // 弹出门板
+                    isShow: !this.state.isShow
+                })
+                this.successToast(res.data.msg)
+            } else {
+                Toast.offline(res.data.msg, 1);
+            }
+        })
+    }
+
     render() {
         const { shopDetail } = this.props;
-        const { isAddShop, isShow, shopArr } = this.state;
-        console.log(shopArr);
+        const { isAddShop, isShow } = this.state;
+        // console.log(shopArr);
         return (
             <div className="shopDetail">
                 {/* 头部 */}
@@ -138,7 +167,7 @@ class ShopDetail extends Component {
                                     }) : null
                                 }
                             </div>
-                            <div className="addShop"><span>加入购物车</span></div>
+                            <div className="addShop" onClick={() => this.addShopCar()}><span>加入购物车</span></div>
                         </div>
                     </div>) : null
                 }
@@ -149,9 +178,7 @@ class ShopDetail extends Component {
         )
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     console.log(JSON.parse(nextProps.shopDetail.specsattr));
-    // }
+
 }
 
 const mapStateToProps = state => {
@@ -163,7 +190,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        reqShopDetail: (id1) => dispatch(reqShopDetailsAction(id1))
+        reqShopDetail: (id1) => dispatch(reqShopDetailsAction(id1)),
+        // reqCartAdd: (obj) => dispatch(reqCartAddAction(obj))
     }
 }
 

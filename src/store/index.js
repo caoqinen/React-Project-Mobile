@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from "redux";
 // 处理异步， 可以return函数
 import thunk from "redux-thunk";
-import { reqBanners, reqGoods, reqGoodsInfo, reqClassifyTree, reqClassifyDetail, reqCartList } from "../util/request";
+import { reqBanners, reqCartEdit, reqGoods, reqGoodsInfo, reqClassifyTree, reqClassifyDetail, reqCartList } from "../util/request";
 
 // 初始状态
 const initState = {
@@ -10,6 +10,7 @@ const initState = {
     shopDetail: {},
     classifyTree: [],
     classifyDetail: [],
+    // 购物车列表
     cartList: []
 }
 
@@ -37,6 +38,23 @@ const changeclassifyDetailAction = (arr) => {
 // 用来修改购物车列表
 const changeCaetListAction = arr => {
     return { type: "changeCartList", list: arr }
+}
+
+// 点击改变checked
+export const changeCheckedAction = index => {
+    return { type: "changeChecked", index }
+}
+// 全选
+export const reqAllchecked = () => {
+    return (dispatch, getState) => {
+        const list = getState().cartList;
+        list.forEach(item => {
+            item.checked = !item.checked;
+        })
+        // console.log(list);
+        dispatch(changeCaetListAction(list))
+    }
+    // return { type: "changeAll" }
 }
 
 // 一进页面 发送请求  reqBannersAction
@@ -73,17 +91,16 @@ export const reqGoodsActions = () => {
 // 进页面进详情页面发请求
 export const reqShopDetailsAction = (id1) => {
     return (dispatch, getState) => {
-        // console.log(getState().shopDetail[0]);
-        // if (getState().shopDetail.length > 0) {
-        //     return;
-        // } else {
-        // 发请求
+        console.log(Object.getOwnPropertyNames(getState().shopDetail).length);
+        if (Object.getOwnPropertyNames(getState().shopDetail).length >= 1) {
+            if (getState().shopDetail.id + "" === id1) {
+                return;
+            }
+        }
+
         reqGoodsInfo({ id: id1 }).then(res => {
             dispatch(changeshopDetailAction(res.data.list[0]))
-
         })
-        // }
-
     }
 }
 // 分类页面数据
@@ -113,19 +130,32 @@ export const reqClassifyDetailAction = (id) => {
     }
 }
 // 购物车列表
-export const reqCartListAction = () => {
+export const reqCartListAction = (uid) => {
     return (dispatch, getState) => {
-        // 如果数据中有内容 就不在请求  （优化）
-        if (getState().cartList.length > 0) {
-            return;
-        } else {
-            // 发请求
-            reqCartList({ uid: 123 }).then(res => {
-                dispatch(changeCaetListAction(res.data.list))
+        // 发请求
+        reqCartList({ uid }).then(res => {
+            const list = res.data.list ? res.data.list : []
+            list.forEach((item) => {
+                item['checked'] = false
             })
-        }
+            dispatch(changeCaetListAction(list))
+        })
     }
 }
+// 购物车修改
+export const reqCartEditAction = (obj) => {
+    return (dispatch, getState) => {
+        const index = getState().cartList.findIndex((val) => val.id === obj.id);
+        // 发请求
+        reqCartEdit(obj).then(res => {
+            if (res.data.code === 200) {
+                dispatch(reqCartListAction(getState().cartList[index].uid))
+            }
+        })
+    }
+}
+
+
 
 
 const reducer = (state = initState, action) => {
@@ -156,9 +186,18 @@ const reducer = (state = initState, action) => {
                 classifyDetail: action.list
             }
         case "changeCartList":
+            // console.log('状态层')
+            // console.log(action.list);
             return {
                 ...state,
                 cartList: action.list
+            }
+        case "changeChecked":
+            const cartList = [...state.cartList];
+            cartList[action.index].checked = !cartList[action.index].checked
+            return {
+                ...state,
+                cartList
             }
         default:
             return state;

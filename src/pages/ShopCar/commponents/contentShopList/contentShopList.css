@@ -1,0 +1,105 @@
+.contentShopList {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.contentShopList .onceData {
+  padding: 0.3rem;
+  overflow: hidden;
+}
+.contentShopList .onceData .top_shop_store span {
+  margin-left: 0.3rem;
+  color: #ccc;
+}
+.contentShopList .onceData .center_shop {
+  display: flex;
+  margin-top: 0.6rem;
+  width: 410px;
+}
+.contentShopList .onceData .center_shop .checkbox {
+  margin-right: 0.2rem;
+}
+.contentShopList .onceData .center_shop .checkbox img {
+  display: block;
+  margin-top: 0.68rem;
+}
+.contentShopList .onceData .center_shop .shop_img {
+  margin-right: 0.2rem;
+}
+.contentShopList .onceData .center_shop .shop_img img {
+  width: 1.8rem;
+}
+.contentShopList .onceData .center_shop .shop_info h3 {
+  font-size: 0.32rem;
+}
+.contentShopList .onceData .center_shop .shop_info .add_shop {
+  margin-top: 0.4rem;
+}
+.contentShopList .onceData .center_shop .shop_info .add_shop span {
+  color: #999;
+  display: inline-block;
+  border: 1px solid #ccc;
+  width: 0.9rem;
+  text-align: center;
+  line-height: 0.5rem;
+}
+.contentShopList .onceData .center_shop .shop_info .shop_total {
+  line-height: 0.7rem;
+}
+.contentShopList .onceData .center_shop .shop_unit {
+  margin-top: 0.3rem;
+  flex-grow: 1;
+  text-align: center;
+}
+.contentShopList .onceData .center_shop .delbtn {
+  background: #ffaa00;
+  width: 1rem;
+  text-align: center;
+  line-height: 2rem;
+  color: #fff;
+}
+.contentShopList .shop_footer {
+  display: flex;
+  position: fixed;
+  bottom: 0.9rem;
+  width: 100%;
+  border-top: 1px solid #999;
+  background: #fff;
+}
+.contentShopList .shop_footer .quanxuan {
+  width: 1rem;
+  margin-top: 0.15rem;
+  text-align: center;
+}
+.contentShopList .shop_footer .quanxuan p {
+  color: #999;
+  line-height: 0.6rem;
+}
+.contentShopList .shop_footer .edit {
+  margin: 0.15rem 0 0 0.2rem;
+  width: 1rem;
+  text-align: center;
+}
+.contentShopList .shop_footer .edit p {
+  color: #999;
+  line-height: 0.6rem;
+}
+.contentShopList .shop_footer .heji {
+  margin-top: 0.15rem;
+  flex-grow: 1;
+}
+.contentShopList .shop_footer .heji p {
+  line-height: 0.4rem;
+  color: #999;
+}
+.contentShopList .shop_footer .heji .heji_p1 {
+  margin-top: 0.1rem;
+}
+.contentShopList .shop_footer .pay {
+  background: #ffaa00;
+  height: 1.2rem;
+}
+.contentShopList .shop_footer .pay span {
+  line-height: 1.2rem;
+  color: #fff;
+  padding: 0 0.8rem;
+}
