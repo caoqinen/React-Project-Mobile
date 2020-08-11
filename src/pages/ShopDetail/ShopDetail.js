@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // 把字符串转换为对象
 import querystring from "querystring";
 import { connect } from "react-redux";
-import { shopDetail, reqShopDetailsAction } from "../../store/index";
+import { shopDetail, reqShopDetailsAction } from "../../store/modules/shopDetail";
 import { NavBar, Icon, Tag, Toast } from 'antd-mobile';
 import collect from "../../assets/img/keep.png"
 import "./ShopDetail.css";

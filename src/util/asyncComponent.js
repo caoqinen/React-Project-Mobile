@@ -25,7 +25,7 @@ export default function asyncComponent(fn) {
             return (
                 <div>
                     {
-                        Lazyloading ? <Lazyloading /> : null
+                        Lazyloading ? <Lazyloading {...this.props} /> : null
                     }
                 </div>
             )

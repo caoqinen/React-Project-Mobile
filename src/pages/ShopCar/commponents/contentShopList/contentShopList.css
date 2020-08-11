@@ -10,10 +10,14 @@
   margin-left: 0.3rem;
   color: #ccc;
 }
+.contentShopList .onceData .active_moveleft {
+  margin-left: -50px;
+}
 .contentShopList .onceData .center_shop {
   display: flex;
   margin-top: 0.6rem;
   width: 410px;
+  transition: all linear 0.2s;
 }
 .contentShopList .onceData .center_shop .checkbox {
   margin-right: 0.2rem;

@@ -3,7 +3,7 @@ import Head from "../../components/wufHeader/Head";
 import Nodata from "./commponents/Nodata/Nodata";
 import ContentShopList from "./commponents/contentShopList/contetntShopList";
 import "./ShopCar.css";
-import { cartList, reqCartListAction } from "../../store/index";
+import { cartList, reqCartListAction } from "../../store/modules/shopCar";
 import { connect } from "react-redux";
 
 class ShopCar extends Component {
@@ -11,7 +11,6 @@ class ShopCar extends Component {
         super();
         this.state = {
             title: '购物车',
-            data: [1]
         }
     }
 
@@ -26,9 +25,8 @@ class ShopCar extends Component {
         const { title, data } = this.state;
         const { cartList } = this.props;
         if (cartList.length === 0) {
-            return <div></div>;
+            return <div><Head tit={title} /><Nodata /></div>;
         }
-        // console.log(cartList);
         return (
             <div>
                 {/* 头部组件 */}
@@ -36,7 +34,7 @@ class ShopCar extends Component {
                 {/* 无数据时出现 */}
                 {
                     // 判断请求回来的东西有值吗，有的话展示，否则展示该组件
-                    data.length === 0 ? <Nodata /> : (
+                    cartList.length === 0 ? <Nodata /> : (
                         // 列表数据
                         <ContentShopList cartList={cartList} />
                     )

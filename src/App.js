@@ -1,18 +1,17 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route, Redirect } from "react-router-dom";
-// import asyncComponent from "./util/asyncComponent";
+import asyncComponent from "./util/asyncComponent";
 
-import Index from "./pages/Index/Index";
-import Login from "./pages/Login/Login";
-import Mine from "./pages/Mine/Mine";
-import Classify from "./pages/classify/classify";
-import ShopCar from "./pages/ShopCar/ShopCar";
-import Register from "./pages/Register/Register";
-import ShopDetail from "./pages/ShopDetail/ShopDetail";
-import ClassifyDetail from "./pages/ClassifyDetail/ClassifyDetail";
 
-// const Index = asyncComponent(() => import("./pages/Index/Index"));
+const Index = asyncComponent(() => import("./pages/Index/Index"));
+const Login = asyncComponent(() => import("./pages/Login/Login"));
+const Mine = asyncComponent(() => import("./pages/Mine/Mine"));
+const Classify = asyncComponent(() => import("./pages/classify/classify"));
+const ShopCar = asyncComponent(() => import("./pages/ShopCar/ShopCar"));
+const Register = asyncComponent(() => import("./pages/Register/Register"));
+const ShopDetail = asyncComponent(() => import("./pages/ShopDetail/ShopDetail"));
+const ClassifyDetail = asyncComponent(() => import("./pages/ClassifyDetail/ClassifyDetail"));
 
 function App() {
   return (

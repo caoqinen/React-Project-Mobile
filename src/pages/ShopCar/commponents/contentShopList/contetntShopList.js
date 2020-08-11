@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./contentShopList.css";
+import { Modal, Toast } from 'antd-mobile';
 import small_store_img from "../../../../assets/img/store.png";
 // 勾选框
 import radio_nor from "../../../../assets/img/radio_nor.png";
@@ -7,10 +8,18 @@ import radio_hig from "../../../../assets/img/radio_hig.png";
 // 编辑
 import editor_nor from "../../../../assets/img/editor_nor.png";
 import editor_hig from "../../../../assets/img/editor_hig.png";
-import { reqCartEditAction, cartList, changeCheckedAction, reqAllchecked } from "../../../../store/index";
+import {
+    reqCartEditAction,
+    cartList,
+    changeCheckedAction,
+    reqAllchecked,
+    editDel,
+    changeeditDelAction,
+    reqDelshop,
+    getAllprice
+} from "../../../../store/modules/shopCar";
 import { connect } from "react-redux";
-import { Toast } from 'antd-mobile';
-
+const alert = Modal.alert;
 class contentShopList extends Component {
     constructor() {
         super();
@@ -56,8 +65,28 @@ class contentShopList extends Component {
         this.props.reqAllchecked1()
         this.setState({})
     }
+
+    // 编辑
+    editDel() {
+        // console.log(1);
+        this.props.changeeditDel()
+    }
+
+    reqDelshopf(id) {
+        alert('删除', '确定要删除吗???', [
+            { text: 'Cancel', onPress: () => console.log('cancel') },
+            {
+                text: 'Ok', onPress: () => {
+                    this.props.reqDelshop(id, JSON.parse(sessionStorage.getItem('key')).uid)
+                }
+            },
+        ])
+        // 点击删除
+
+
+    }
     render() {
-        const { cartList } = this.props;
+        const { cartList, editDel, getAllprice } = this.props;
         return (
             <div className="contentShopList">
                 {
@@ -71,7 +100,7 @@ class contentShopList extends Component {
                                     <span>杭州保税区仓</span>
                                 </div>
                                 {/* 图片这一类的  一会浮动*/}
-                                <div className="center_shop">
+                                <div className={editDel ? 'center_shop active_moveleft' : 'center_shop'}>
                                     {/* 商品勾选框  */}
                                     <div className="checkbox">
                                         {
@@ -103,27 +132,28 @@ class contentShopList extends Component {
                                     {/* 商品单价 */}
                                     <div className="shop_unit">￥{item.price}</div>
                                     {/* delBtn */}
-                                    <div className="delbtn">删除</div>
+                                    <div className="delbtn" onClick={() => this.reqDelshopf(item.id)}>删除</div>
                                 </div>
 
                             </div >
                         )
                     })
                 }
+                {/* <WhiteSpace size="lg" /> */}
                 {/* 下面结算 */}
                 <div className="shop_footer">
                     <div className="quanxuan">
                         {
-                            cartList.every((item) => item.checked) ? <img src={radio_hig} alt="" /> : <img src={radio_nor} alt="" />
+                            <img src={cartList.every((item) => item.checked) ? radio_hig : radio_nor} alt="" />
                         }
                         <p onClick={() => this.allChecked()}>全选</p>
                     </div>
-                    <div className="edit">
-                        <img src={editor_nor} alt="" />
+                    <div className="edit" onClick={() => this.editDel()}>
+                        <img src={editDel ? editor_hig : editor_nor} alt="" />
                         <p>编辑</p>
                     </div>
                     <div className="heji">
-                        <p className="heji_p1">合计:动态数据</p>
+                        <p className="heji_p1">合计:{getAllprice}</p>
                         <p className="heji_p2">(不含运费)</p>
                     </div>
                     <div className="pay"><span>去结算</span></div>
@@ -134,15 +164,22 @@ class contentShopList extends Component {
     }
 }
 const mapStateToProps = state => {
+    // console.log(state);
     return {
-        cartList: cartList(state)
+        cartList: cartList(state),
+        // 编辑
+        editDel: editDel(state),
+        // getAllprice: getAllprice(state)
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
         reqCartEdit: (obj) => dispatch(reqCartEditAction(obj)),
         changeChecked: (index) => dispatch(changeCheckedAction(index)),
-        reqAllchecked1: () => dispatch(reqAllchecked())
+        reqAllchecked1: () => dispatch(reqAllchecked()),
+        changeeditDel: () => dispatch(changeeditDelAction()),
+        reqDelshop: (id, uid) => dispatch(reqDelshop(id, uid))
+
     }
 }
 

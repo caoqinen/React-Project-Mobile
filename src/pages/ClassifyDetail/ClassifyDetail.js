@@ -3,7 +3,7 @@ import querystring from "querystring";
 import { NavBar, Icon } from 'antd-mobile';
 import "./ClassifyDetail.css";
 import { connect } from "react-redux";
-import { classifyDetail, reqClassifyDetailAction } from '../../store';
+import { classifyDetail, reqClassifyDetailAction } from '../../store/modules/classifyDetail';
 
 class ClassifyDetail extends Component {
 

@@ -93,3 +93,11 @@ export const reqCartEdit = (data) => axios({
     method: "post",
     data: qs.stringify(data)
 })
+
+
+// 购物车删除
+export const reqCartDel = (data) => axios({
+    url: "/api/cartdelete",
+    method: "post",
+    data: qs.stringify(data)
+})

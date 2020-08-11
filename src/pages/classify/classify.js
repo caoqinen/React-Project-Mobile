@@ -5,7 +5,7 @@ import Left from "./components/content_left/Left";
 
 import "./classify.css";
 import { connect } from "react-redux";
-import { classifyTree, reqClassifyTreeAction } from "../../store/index";
+import { classifyTree, reqClassifyTreeAction } from "../../store/modules/classify";
 import Head from "../../components/wufHeader/Head";
 
 class Classify extends Component {

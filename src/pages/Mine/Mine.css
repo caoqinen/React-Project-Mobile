@@ -1,7 +1,96 @@
-.head_classify .am-navbar-light {
-  background: #FF9900 !important;
-  color: #fff !important;
+.mine1 {
+  background-color: #fff;
 }
-.head_classify .am-navbar-light .am-navbar-title {
+.mine1 .top {
+  height: 3.5rem;
+  background-color: #FF9900;
+}
+.mine1 .top .line1 {
+  font-size: 0.4rem;
   color: #fff;
+  text-align: center;
+  position: relative;
+  padding-top: 0.2rem;
+}
+.mine1 .top .line1 .img1 {
+  position: absolute;
+  left: 0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.mine1 .top .line1 .img1 img {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.mine1 .top .line1 .img2 {
+  position: absolute;
+  right: 0.3rem;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.mine1 .top .line1 .img2 img {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+.mine1 .top .line2 {
+  position: relative;
+  top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+.mine1 .top .line2 .img3 {
+  width: 3rem;
+  height: 3rem;
+  display: inline-block;
+  border: 0.2rem solid #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.mine1 .top .line2 .img3 img {
+  width: 3rem;
+  height: 3rem;
+}
+.mine1 .top .line2 h4 {
+  font-size: 0.3rem;
+  line-height: 1.5;
+}
+.mine1 .shoucang {
+  margin-top: 1.8rem;
+  padding: 0 0.3rem 0.3rem 0.3rem;
+  font-size: 0.3rem;
+  border-bottom: 0.1rem solid rgba(153, 153, 153, 0.158);
+}
+.mine1 .order {
+  margin-top: 0.5rem;
+  font-size: 0.3rem;
+  padding-left: 0.8rem;
+  padding-right: 0.3rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #333;
+}
+.mine1 .order span {
+  float: right;
+  color: #999;
+}
+.mine1 .fa {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0.2rem 0;
+  border-bottom: 0.1rem solid rgba(153, 153, 153, 0.158);
+}
+.mine1 .fa li {
+  text-align: center;
+  font-size: 0.28rem;
+  color: #666;
+}
+.mine1 .fa li div {
+  padding: 0.16rem;
+}
+.mine1 .shou {
+  line-height: 4;
+  font-size: 0.3rem;
+  color: #666;
+  padding: 0 0.3rem;
+  border-bottom: 0.1rem solid rgba(153, 153, 153, 0.158);
 }

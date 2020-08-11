@@ -7,7 +7,7 @@ import ShopList from "./components/ShopList/ShopList";
 // 把该组件变成高阶组件 容器组件
 import { connect } from "react-redux";
 // 把仓库中导出的数据取出来
-import { banner, reqBannersAction, goods, reqGoodsActions } from "../../store/index";
+import { banner, reqBannersAction, goods, reqGoodsActions } from "../../store/modules/Home";
 
 
 
