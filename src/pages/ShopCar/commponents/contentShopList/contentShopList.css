@@ -1,6 +1,6 @@
 .contentShopList {
   position: relative;
-  margin-bottom: 2.5rem;
+  margin: 1rem 0 2.5rem 0;
 }
 .contentShopList .onceData {
   padding: 0.3rem;
@@ -11,12 +11,12 @@
   color: #ccc;
 }
 .contentShopList .onceData .active_moveleft {
-  margin-left: -50px;
+  margin-left: -14%;
 }
 .contentShopList .onceData .center_shop {
   display: flex;
   margin-top: 0.6rem;
-  width: 410px;
+  width: 119%;
   transition: all linear 0.2s;
 }
 .contentShopList .onceData .center_shop .checkbox {

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import "./Login.css";
 import { Button, Toast } from 'antd-mobile';
-import { reqLogin } from "../../util/request"
+import { reqLogin } from "../../util/request";
+import { connect } from "react-redux";
+import { changeUserAction } from "../../store/modules/user";
 
 class Login extends Component {
     constructor() {
@@ -13,6 +15,8 @@ class Login extends Component {
             }
         }
     }
+
+
 
     toRegister() {
         this.props.history.push("/Register")
@@ -50,8 +54,8 @@ class Login extends Component {
         reqLogin(this.state.user).then(res => {
             if (res.data.code === 200) {
                 this.successToast(res.data.msg + '正在跳转首页...');
-                const userData = JSON.stringify(res.data.list)
-                sessionStorage.setItem('key', userData)
+                this.props.changeUser(res.data.list)
+                sessionStorage.setItem('key', JSON.stringify(res.data.list));
             } else {
                 this.offline('账号或密码错误');
             }
@@ -79,4 +83,11 @@ class Login extends Component {
     }
 }
 
-export default Login;
+
+const mapState = state => { return {} }
+const mapDispatch = dispatch => {
+    return {
+        changeUser: (user) => dispatch(changeUserAction(user))
+    }
+}
+export default connect(mapState, mapDispatch)(Login);

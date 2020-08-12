@@ -169,7 +169,7 @@ const mapStateToProps = state => {
         cartList: cartList(state),
         // 编辑
         editDel: editDel(state),
-        // getAllprice: getAllprice(state)
+        getAllprice: getAllprice(state)
     }
 }
 const mapDispatchToProps = dispatch => {

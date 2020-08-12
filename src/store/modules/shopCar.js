@@ -32,7 +32,7 @@ export const changeCheckedAction = index => {
 // 购物车列表
 export const reqCartListAction = (uid) => {
     return (dispatch, getState) => {
-        const { cartList } = getState().shopCar;
+        // const { cartList } = getState().shopCar;
         // if (cartList.length > 0) {
         //     return
         // }
@@ -123,17 +123,17 @@ export const cartList = state => state.shopCar.cartList;
 export const editDel = state => state.shopCar.editDel;
 
 // 获取总共价格
-// export const getAllprice = state => {
-//     let num = 0;
-//     const { cartList } = state.cartList;
-//     console.log(cartList);
-//     // cartList.forEach((item) => {
-//     //     if (item.checked) {
-//     //         num += item.num * item.price
-//     //     }
-//     // })
-//     return num
-// }
+export const getAllprice = state => {
+    let num = 0;
+    const { cartList } = state.shopCar;
+    // console.log(cartList);
+    cartList.forEach((item) => {
+        if (item.checked) {
+            num += item.num * item.price
+        }
+    })
+    return num
+}
 // console.log(this.state);
 
 

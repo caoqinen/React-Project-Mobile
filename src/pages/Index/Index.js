@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch, NavLink } from "react-router-dom";
-import Home from "../Home/Home";
-import Mine from "../Mine/Mine";
-import Classify from "../classify/classify";
-import ShopCar from "../ShopCar/ShopCar";
+import asyncComponent from "../../util/asyncComponent";
+
 import "./Index.css";
 // 图片不亮
 import homeNb from "../../assets/img/tab_home_nor.png";
@@ -16,10 +14,15 @@ import classifybg from "../../assets/img/tab_menu_hig.png";
 import shopcarbg from "../../assets/img/tab_shopping_hig.png";
 import minebg from "../../assets/img/tab_me_hig.png";
 
+// 懒加载
+const Home = asyncComponent(() => import("../Home/Home"));
+const Mine = asyncComponent(() => import("../Mine/Mine"));
+const Classify = asyncComponent(() => import("../classify/classify"));
+const ShopCar = asyncComponent(() => import("../ShopCar/ShopCar"));
+
 export default class Index extends Component {
 
     render() {
-        // console.log(this.props);
         const isOk = this.props.history.location.pathname;
         return (
             <div>

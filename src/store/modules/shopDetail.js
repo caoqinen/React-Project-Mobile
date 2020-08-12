@@ -13,13 +13,16 @@ const changeshopDetailAction = (arr) => {
 // 进页面进详情页面发请求
 export const reqShopDetailsAction = (id1) => {
     return (dispatch, getState) => {
+        const { shopDetail } = getState().shopDetail;
         // 缓存层（优化）
-        if (Object.getOwnPropertyNames(getState().shopDetail).length >= 1) {
-            if (getState().shopDetail.id + "" === id1) {
+        if (JSON.stringify(shopDetail) === '{}') {
+            if (shopDetail.id === Number(id1)) {
                 return;
             }
         }
-
+        if (shopDetail.id === Number(id1)) {
+            return;
+        }
         reqGoodsInfo({ id: id1 }).then(res => {
             dispatch(changeshopDetailAction(res.data.list[0]))
         })

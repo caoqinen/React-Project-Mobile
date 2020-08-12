@@ -5,8 +5,11 @@ import mine from "../../assets/img/mine.jpg"
 import mine1 from "../../assets/img/1.jpg"
 import keep from "../../assets/img/keep.png"
 import icon from "../../assets/img/icon_refund.png"
-export default class Mine extends Component {
+import { getUser } from "../../store/modules/user";
+import { connect } from "react-redux";
+class Mine extends Component {
     render() {
+        const { username } = this.props;
         return (
             <div className="mine1">
                 <div className="top">
@@ -23,7 +26,7 @@ export default class Mine extends Component {
                         <div className="img3">
                             <img src={mine1} alt="" />
                         </div>
-                        <h4>小不点儿</h4>
+                        <h4>{username.nickname}</h4>
                     </div>
                 </div>
                 <div className="shoucang">
@@ -61,3 +64,14 @@ export default class Mine extends Component {
         )
     }
 }
+
+
+const mapState = state => {
+    return {
+        username: getUser(state)
+    }
+}
+const mapDispatch = dispatch => {
+    return {}
+}
+export default connect(mapState, mapDispatch)(Mine)

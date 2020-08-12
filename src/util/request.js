@@ -2,11 +2,23 @@ import axios from "axios";
 import qs from "qs";
 
 
+// 请求拦截
+axios.interceptors.request.use(config => {
+    if (config.url !== '/api/login') {
+        config.headers.authorization = JSON.parse(sessionStorage.getItem('key')).token;
+    }
+    return config
+})
+
+
 // 响应拦截
 axios.interceptors.response.use(res => {
-    console.group();
-    console.log(res);
-    console.groupEnd();
+    // console.group();
+    // console.log(res);
+    // console.groupEnd();
+    if (res.data.code === 403) {
+        window.open('http://localhost:3001/#/login', '_self')
+    }
     return res;
 });
 
@@ -66,7 +78,7 @@ export const reqClassifyTree = (params) => axios({
 })
 
 // 获取分类中某一条的商品信息
-export const reqClassifyDetail = (params) => axios({
+export const reqClassifyDetail1 = (params) => axios({
     url: "/api/getgoods",
     method: "get",
     params

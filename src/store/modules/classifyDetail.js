@@ -1,21 +1,30 @@
-import { reqClassifyDetail } from "../../util/request";
+import { reqClassifyDetail1 } from "../../util/request";
 
 // 状态
 const initState = {
-    reqClassifyDetail: []
+    reqClassifyDetail: [],
+    id1: null
 }
 
 // 用来修改状态
 const changeclassifyDetailAction = (arr) => {
     return { type: "changeClassifyDetail", list: arr }
 }
+const changeidAction = (newid) => {
+    return { type: "changeid", list: newid }
+}
 
 
 // 分类详情页面
 export const reqClassifyDetailAction = (id) => {
     return (dispatch, getState) => {
+        const { id1 } = getState().classifyDetail;
+        dispatch(changeidAction(id))
+        if (id1 === id) {
+            return
+        }
         // 发请求
-        reqClassifyDetail({ fid: id }).then(res => {
+        reqClassifyDetail1({ fid: id }).then(res => {
             dispatch(changeclassifyDetailAction(res.data.list))
         })
     }
@@ -28,6 +37,11 @@ const reducer = (state = initState, action) => {
             return {
                 ...state,
                 classifyDetail: action.list
+            }
+        case "changeid":
+            return {
+                ...state,
+                id1: action.list
             }
         default:
             return state;

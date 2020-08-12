@@ -1,6 +1,11 @@
 .head_detail .am-navbar-light {
     background: #FF9900 !important;
     color: #fff !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
   }
 .head_detail .am-navbar-light .am-navbar-title {
     color: #fff;

@@ -1,8 +1,13 @@
 .header_toubu{
     background: #fff;
     height: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
 }
-.header_toubu .left {}
+
 .header_toubu .left .logo{
     margin: 0.3rem 0 0 .2rem;
     width: 2.5rem;

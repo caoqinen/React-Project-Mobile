@@ -1,5 +1,6 @@
 .banner .slider .slider-list .slider-slide{
     height: 4rem !important;
+
 }
 
 .banner .slider .slider-list .slider-slide img{
@@ -9,4 +10,5 @@
 
 .banner{
     touch-action: none;
+    margin-top: 1rem;
 }

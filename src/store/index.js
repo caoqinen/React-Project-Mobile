@@ -6,13 +6,15 @@ import shopDetail from "./modules/shopDetail";
 import classify from "./modules/classify";
 import classifyDetail from "./modules/classifyDetail";
 import shopCar from "./modules/shopCar";
+import user from "./modules/user";
 
 const reducer = combineReducers({
     Home,
     shopDetail,
     classify,
     classifyDetail,
-    shopCar
+    shopCar,
+    user
 })
 // 创建仓库
 const store = createStore(reducer, applyMiddleware(thunk));

@@ -22,7 +22,7 @@ class ShopCar extends Component {
         this.props.reqCartList(uid)
     }
     render() {
-        const { title, data } = this.state;
+        const { title } = this.state;
         const { cartList } = this.props;
         if (cartList.length === 0) {
             return <div><Head tit={title} /><Nodata /></div>;
