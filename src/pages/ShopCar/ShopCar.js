@@ -3,7 +3,7 @@ import Head from "../../components/wufHeader/Head";
 import Nodata from "./commponents/Nodata/Nodata";
 import ContentShopList from "./commponents/contentShopList/contetntShopList";
 import "./ShopCar.css";
-import { cartList, reqCartListAction } from "../../store/modules/shopCar";
+import { cartList, reqCartListAction, changeeAllAction, checkedAll, changeIsRAction } from "../../store/modules/shopCar";
 import { connect } from "react-redux";
 
 class ShopCar extends Component {
@@ -23,7 +23,7 @@ class ShopCar extends Component {
     }
     render() {
         const { title } = this.state;
-        const { cartList } = this.props;
+        const { cartList, checkedAll, changeeAllAction } = this.props;
         if (cartList.length === 0) {
             return <div><Head tit={title} /><Nodata /></div>;
         }
@@ -36,7 +36,7 @@ class ShopCar extends Component {
                     // 判断请求回来的东西有值吗，有的话展示，否则展示该组件
                     cartList.length === 0 ? <Nodata /> : (
                         // 列表数据
-                        <ContentShopList cartList={cartList} />
+                        <ContentShopList cartList={cartList} checkedAll={checkedAll} changeeAllAction={() => changeeAllAction()} />
                     )
                 }
 
@@ -47,12 +47,16 @@ class ShopCar extends Component {
 const mapStateToProps = state => {
     // console.log(state);
     return {
-        cartList: cartList(state)
+        cartList: cartList(state),
+        checkedAll: checkedAll(state)
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        reqCartList: (uid) => dispatch(reqCartListAction(uid))
+        reqCartList: (uid) => dispatch(reqCartListAction(uid)),
+        changeeAllAction: () => dispatch(changeeAllAction()),
+        changeIsRAction: (bool) => dispatch(changeIsRAction(bool))
+
     }
 }
 

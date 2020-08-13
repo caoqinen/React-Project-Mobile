@@ -68,7 +68,6 @@ class contentShopList extends Component {
 
     // 编辑
     editDel() {
-        // console.log(1);
         this.props.changeeditDel()
     }
 
@@ -86,7 +85,7 @@ class contentShopList extends Component {
 
     }
     render() {
-        const { cartList, editDel, getAllprice } = this.props;
+        const { cartList, editDel, getAllprice, checkedAll, changeeAllAction } = this.props;
         return (
             <div className="contentShopList">
                 {
@@ -144,9 +143,9 @@ class contentShopList extends Component {
                 <div className="shop_footer">
                     <div className="quanxuan">
                         {
-                            <img src={cartList.every((item) => item.checked) ? radio_hig : radio_nor} alt="" />
+                            <img src={checkedAll ? radio_hig : radio_nor} alt="" />
                         }
-                        <p onClick={() => this.allChecked()}>全选</p>
+                        <p onClick={() => changeeAllAction()}>全选</p>
                     </div>
                     <div className="edit" onClick={() => this.editDel()}>
                         <img src={editDel ? editor_hig : editor_nor} alt="" />
